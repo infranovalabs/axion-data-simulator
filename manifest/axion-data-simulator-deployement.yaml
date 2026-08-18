@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  namespace: axion-service
+  name: axion-data-simulator
+
+spec:
+  replicas: 1
+
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+      
+  selector:
+    matchLabels:
+      app: axion-data-simulator
+
+  template:
+    metadata:
+      labels:
+        app: axion-data-simulator
+
+    spec:
+      containers:
+      - name: axion-data-simulator
+        image: acrtodoappbappa.azurecr.io/axion-data-simulator:v1
+        # resources:
+        #   requests:
+        #     cpu: "250m"
+        #     memory: "256Mi"
+        #   limits:
+        #     cpu: "500m"
+        #     memory: "512Mi" 
+               
+        ports:
+        - containerPort: 8000

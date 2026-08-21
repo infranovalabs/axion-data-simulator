@@ -49,5 +49,10 @@ jobs:
       - name: connect to AKS
         run: az aks get-credentials --resource-group jaydeep_rg1 --name jaydeep-aks-cluster --overwrite-existing
 
+      - name: Deploy yaml
+        run: |
+          kubectl apply -f ./manifest/ingestion-service.yaml
+          kubectl apply -f ./manifest/ingestion-service.yaml
+
 
      

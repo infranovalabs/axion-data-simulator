@@ -51,8 +51,7 @@ jobs:
 
       - name: Deploy yaml
         run: |
-          kubectl apply -f ./manifest/ingestion-service.yaml
-          kubectl apply -f ./manifest/ingestion-service.yaml
-
+          kubectl apply -f ./manifest/axion-data-simulator-deployement.yaml
+          kubectl apply -f ./manifest/simulator-service.yaml
 
      
